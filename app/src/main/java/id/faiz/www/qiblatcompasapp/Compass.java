@@ -11,7 +11,7 @@ public class Compass implements SensorEventListener {
 
     public interface CompassListener {
         void onNewAzimuth(float azimuth);
-    }
+    }   
 
     private CompassListener listener;
 

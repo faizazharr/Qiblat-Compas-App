@@ -103,21 +103,17 @@ public class CompassActivity extends AppCompatActivity {
     }
 
     private void setupCompass() {
-        Boolean permission_granted = GetBoolean("permission_granted");
-        if(permission_granted) {
+        String[] PERMISSIONS = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
+        if(ContextCompat.checkSelfPermission(this,String.valueOf(PERMISSIONS)) ==  PackageManager.PERMISSION_GRANTED) {
             getBearing();
         }else{
             text_atas.setText(getResources().getString(R.string.msg_permission_not_granted_yet));
             text_bawah.setText(getResources().getString(R.string.msg_permission_not_granted_yet));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},
-                        1);
+                        PERMISSIONS,1);
             }
         }
-
-
-
         compass = new Compass(this);
         Compass.CompassListener cl = new Compass.CompassListener() {
 
@@ -231,10 +227,7 @@ public class CompassActivity extends AppCompatActivity {
         edit.putBoolean(Judul, bbb);
         edit.apply();
     }
-    public Boolean GetBoolean(String Judul){
-        Boolean result = prefs.getBoolean(Judul, false);
-        return result;
-    }
+
     public  void Savelong(String Judul, Long bbb){
         SharedPreferences.Editor edit = prefs.edit();
         edit.putLong(Judul, bbb);
@@ -281,9 +274,6 @@ public class CompassActivity extends AppCompatActivity {
     }
 
     public void fetch_GPS(){
-
-
-
         double result = 0;
         gps = new GPSTracker(this);
         if(gps.canGetLocation()){
