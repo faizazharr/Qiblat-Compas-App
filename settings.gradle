@@ -1,2 +1,4 @@
 include ':app'
 rootProject.name='Qiblat Compas App'
+
+

@@ -173,8 +173,7 @@ public class CompassActivity extends AppCompatActivity {
                 item.setIcon(ContextCompat.getDrawable(getApplicationContext(), R.drawable.gps_off));
             }
                 arrowViewQiblat .setVisibility(View.VISIBLE);
-        }else
-        {
+        }else{
             fetch_GPS();
         }
 
@@ -211,31 +210,10 @@ public class CompassActivity extends AppCompatActivity {
         }
     }
 
-
-    public  void SaveString(String Judul, String tex){
-        SharedPreferences.Editor edit = prefs.edit();
-        edit.putString(Judul, tex);
-        edit.apply();
-    }
-    public String GetString(String Judul){
-        String Stringxxx = prefs.getString(Judul, "");
-        return Stringxxx;
-    }
-
     public  void SaveBoolean(String Judul, Boolean bbb){
         SharedPreferences.Editor edit = prefs.edit();
         edit.putBoolean(Judul, bbb);
         edit.apply();
-    }
-
-    public  void Savelong(String Judul, Long bbb){
-        SharedPreferences.Editor edit = prefs.edit();
-        edit.putLong(Judul, bbb);
-        edit.apply();
-    }
-    public Long Getlong(String Judul){
-        Long xxxxxx = prefs.getLong(Judul, 0);
-        return xxxxxx;
     }
 
     public void SaveFloat(String Judul, Float bbb){
@@ -251,10 +229,6 @@ public class CompassActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        // this.menu = menu;
-        // menu.getItem(0). setIcon(ContextCompat.getDrawable(getApplicationContext(), R.drawable.gps_off));
-       // getMenuInflater().inflate(R.menu.gps, menu);
-       // MenuItem item = menu.findItem(R.id.gps);
         inflater.inflate(R.menu.gps, menu);
         item = menu.findItem(R.id.gps);
         return true;
@@ -265,7 +239,6 @@ public class CompassActivity extends AppCompatActivity {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
             case R.id.gps:
-                //logout code
                 fetch_GPS();
                 return true;
             default:
@@ -328,7 +301,6 @@ public class CompassActivity extends AppCompatActivity {
             text_bawah.setText(getResources().getString(R.string.pls_enable_location));
             if(item != null){
                 item.setIcon(ContextCompat.getDrawable(getApplicationContext(), R.drawable.gps_off));
-
             }
             // Toast.makeText(getApplicationContext(), "Please enable Location first and Restart Application", Toast.LENGTH_LONG).show();
         }

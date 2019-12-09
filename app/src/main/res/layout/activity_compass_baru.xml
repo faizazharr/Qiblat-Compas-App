@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CompassBaru">
+
+    <ImageView
+        android:layout_width="525dp"
+        android:layout_height="823dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/ic_kiblat_back" />
+
+    <ImageView
+        android:id="@+id/ic_compass"
+        android:layout_width="298dp"
+        android:layout_height="296dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/kompas"/>
+
+    <ImageView
+        android:id="@+id/jarum_kiblat"
+        android:layout_width="37dp"
+        android:layout_height="183dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/jarum" />
+
+
+</FrameLayout>
